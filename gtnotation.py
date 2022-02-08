@@ -1,6 +1,6 @@
 def getPossibleTunings(type):
     if type == "st":
-        possibleTunings= ["E", "Eb", "D", "C#", "C"]
+        possibleTunings= ["E Standard", "Eb Standard", "D Standard", "C# Standard", "C Standard"]
     if type == "dr":
         possibleTunings= ["E Drop D", "Eb Drop Db", "D Drop C", "C# Drop B"]
     return possibleTunings
