@@ -1,6 +1,6 @@
 from gtsound import *
 from gtnotation import *
-from tkinter import *
+import tkinter as tk
 
 #variables for tuning type and speed
 type = "st"
@@ -15,22 +15,23 @@ unselected = "#c94848"
 def tuneClick():
     playTuning(type, note, speed)
 
-root = Tk()
-root.title("Simple Guitar Tuner")
-root.iconbitmap('./assets/icon.ico')
+window = tk.Tk()
+window.title("Simple Guitar Tuner")
+window.configure(bg='#898989')
+window.iconbitmap('./assets/icon.ico')
 
-standardLabel = Label(root, text="Standard")
+standardLabel = tk.Label(window, text="Standard")
 standardLabel.grid(row=0,column=0)
 for i in getPossibleTunings("st"):
-    Radiobutton(root, text=[i], variable=tuning, value=[i]).grid(row=getPossibleTunings("st").index(i)+1, column=0)
+    tk.Radiobutton(window, text=[i], variable=tuning, value=[i]).grid(row=getPossibleTunings("st").index(i)+1, column=0)
 
-dropLabel = Label(root, text="Drop")
+dropLabel = tk.Label(window, text="Drop")
 dropLabel.grid(row=0,column=1)
 for i in getPossibleTunings("dr"):
-    Radiobutton(root, text=[i], variable=tuning, value=[i]).grid(row=getPossibleTunings("dr").index(i)+1, column=1)
+    tk.Radiobutton(window, text=[i], variable=tuning, value=[i]).grid(row=getPossibleTunings("dr").index(i)+1, column=1)
 
-tuneButton = Button(root, text="Tune", command=tuneClick)
+tuneButton = tk.Button(window, text="Tune", command=tuneClick)
 tuneButton.grid(row=0, column=3)
 
 
-root.mainloop()
+window.mainloop()
